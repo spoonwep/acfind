@@ -177,18 +177,16 @@ function extracts($source,$video_url){
 }
 
 function download($url){
-    	$s = new SaeStorage();
 		$folder = '/';
 		$dl_list_name = $folder.basename($_POST['url']).'.lst';
 		$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$url.'');
-    	//$names=fopen($dl_list_name, 'w+');
+    			$names=fopen($dl_list_name, 'w+');
 				echo '<textarea class="dll">';
 				foreach($html->find('a[class=link]') as $e){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
-                    $s->write('download' , $dl_list_name, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
@@ -198,16 +196,15 @@ function download($url){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
                         $s->write('download' , $dl_list_name, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
 				echo '</textarea>';
-    			//fclose($names);
+    			fclose($names);
 }
 function download_youku($video_url){
-			$s = new SaeStorage();
 			$folder = '/';
 			$dl_list_name = $folder.basename($_POST['url']).'.lst';
 			if(preg_match('/id_(.*).html/',$video_url)){
@@ -216,14 +213,13 @@ function download_youku($video_url){
 					$cc='http://v.youku.com/v_show/id_'.$video_url.'.html';
 				}
 				$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$cc.'&flag=one&format=super');
-    			//$names=fopen($dl_list_name, 'w+');
+    			$names=fopen($dl_list_name, 'w+');
 				echo '<textarea class="dll">';
 				foreach($html->find('a[class=link]') as $e){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
-                        $s->write('download' , $dl_list_name, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
@@ -233,27 +229,25 @@ function download_youku($video_url){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
                         $s->write('download' , $dl_list_name, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
 				echo '</textarea>';
-    //fclose($names);
+    			fclose($names);
 }
 function download_tudou($url){
-	$s = new SaeStorage();
 	$folder = '/';
 	$dl_list_name = $folder.basename($_POST['url']).'.lst';
 	$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$url.'&flag=one&format=real');
-    //$names=fopen($dl_list_name, 'w+');
+    			$names=fopen($dl_list_name, 'w+');
 				echo '<textarea class="dll">';
 				foreach($html->find('a[class=link]') as $e){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
-                        $s->write('download' , $dl_list_name, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
@@ -263,16 +257,15 @@ function download_tudou($url){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
+                        fwrite($names, $names2[1]."\r");
                         $s->write('download' , $dl_list_name, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
 				echo '</textarea>';
-    //fclose($names);
+    			fclose($names);
 }
 function download_pps($video_url){
-			$s = new SaeStorage();
 			$folder = '/';
 			$dl_list_name = $folder.basename($_POST['url']).'.lst';
 			if(preg_match('/play_(.*).html/',$video_url)){
@@ -281,14 +274,13 @@ function download_pps($video_url){
 					$cc='http://v.pps.tv/play_'.$video_url.'.html';
 				}
 				$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$cc.'&flag=one&format=high');
-    //$names=fopen($dl_list_name, 'w+');
+    				$names=fopen($dl_list_name, 'w+');
 				echo '<textarea class="dll">';
 				foreach($html->find('a[class=link]') as $e){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
-                        $s->write('download' , $dl_list_name, $names2[1]."\r");
+	                        fwrite($names, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
@@ -298,121 +290,14 @@ function download_pps($video_url){
 					$names1 = $e->outertext;
 					preg_match('/href=\"(.*)\"\starget/U', $names1,$names2);
 					if(!empty($names2[1])){
-                        //fwrite($names, $names2[1]."\r");
-                        $s->write('download' , $dl_list_name, $names2[1]."\r");
+	                        fwrite($names, $names2[1]."\r");
+	                        $s->write('download' , $dl_list_name, $names2[1]."\r");
 					}
 					echo $e->outertext;
 					}
 				echo '</textarea>';
-    //fclose($names);
+    				fclose($names);
 }
-	/*
-			if($source=='qq'){
-				return '<font color=red>腾讯视频暂不提供下载，如果你有获取腾讯视频真实地址的方法，欢迎通过底部的邮箱链接联系我:D</font>';
-			}else
-			if($source=='www.tudou'){
-				$ccc=urlencode($video_url);
-				$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$ccc.'');
-				echo '<textarea class="dll">';
-				foreach($html->find('a[class=link]') as $e){
-					echo $e->outertext;
-					}
-				echo '</textarea>';
-			}else
-			if($source=='v.youku'){
-				if(preg_match('/id_(.*).html/',$video_url)){
-					$cc=urlencode($video_url);
-				}else{
-					$cc='http://v.youku.com/v_show/id_'.$video_url.'.html';
-				}
-				$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$cc.'');
-				echo '<textarea class="dll">';
-				foreach($html->find('a[class=link]') as $e){
-					echo $e->outertext;
-					}
-				echo '</textarea>';
-				echo '<textarea class="dll">';
-				foreach($html->find('a[onclick=_alert();return false;]') as $e){
-					echo $e->outertext;
-					}
-				echo '</textarea>';
-			}else
-			if($source=='video.sina'||$source=='you.video.sina'){
-				if(preg_match("/^[\d]{5,15}$/",$video_url)){
-					echo '<textarea class="dll"><p class="text-error">该视频暂时无法获取源，如果你知道如何只通过Ac返回的vid得到新浪源地址，请!联!系!我!→admin#lolimilk.com</p></textarea>';
-				}else{
-				$ccc=urlencode($video_url);
-				$html = file_get_html('http://www.flvcd.com/parse.php?format=&kw='.$ccc.'');
-				echo '<textarea class="dll">';
-				foreach($html->find('a[class=link]') as $e){
-					echo $e->outertext;
-					}
-				echo '</textarea>';
-				echo '<textarea class="dll">';
-				foreach($html->find('a[onclick=_alert();return false;]') as $e){
-					echo $e->outertext;
-					}
-				echo '</textarea>';*/
-				/*foreach($html->find('font[color=red]') as $f){
-					echo $f->outertext;
-					}*/
-				/*
-				//$ran = rand(0,1000);
-				$ran = 0; //一个随机数 as3 用 Math.random() 生成
-				//$time = time();
-				//$time = decbin($time);
-				//$time = substr($time, 0, -6);
-				//$time = bindec($time);
-				$time = 0; //一个时间戳，如果失效 用上面4行代码
-        $a = array(
-            $vid,
-            'Z6prk18aWxP278cVAH', 
-            $time,
-            $ran,
-        );
-        $key = implode('', $a);
-        $key = md5($key);
-        $key = substr($key, 0, 16);
-        $key .= $time;
-            
-        $xml_url = 'http://v.iask.com/v_play.php?' . http_build_query(array(
-                'vid' => $vid,
-                'uid' => 'null',
-                'pid' => 'null',
-                'tid' => 'undefined',
-                'plid' => '4001',
-                'prid' => 'ja_7_4993252847',
-                'referrer' => '',
-                'ran' => $ran,
-                'r' => 'video.sina.com.cn',
-                'v' => 'p2p4.1.42.23',
-                'p' => 'i',
-                'k' => $key,
-            ));
-			事例：http://v.iask.com/v_play.php?vid=110860064&uid=null&pid=null&tid=undefined&plid=4001&prid=ja_7_4993252847&referrer=&ran=0.5&r=video.sina.com.cn&v=p2p4.1.42.23&p=i&k=72fb3c4c996254510
-				
-				$sinavid=basename($video_url,'.html');
-				if(preg_match("/^[\d]{5,15}$/",$video_url)){
-					$vid=$video_url;
-				}else{
-					$viduid=(explode('-',$sinavid));
-					$vid =  $viduid[0];
-				}
-				$dom=new DomDocument();   //创建DOM对象
-				$dom->load('http://v.iask.com/v_play.php?vid='.$vid.'&uid=null&pid=null&tid=undefined&plid=4001&prid=ja_7_4993252847&referrer=&ran=0.5&r=video.sina.com.cn&v=p2p4.1.42.23&p=i&k=72fb3c4c996254510');  //获取xml文件
-				$content = $dom->textContent;
-				//echo $content;
-				preg_match_all('/http:\/\/edge\.v\.iask\.com\/([0-9]*)\.hlv\?KID=sina,viask&Expires=([0-9]*)&ssig=.{5,15}/',$content,$dl_url);
-				$dl_url_length=count($dl_url[0]);
-				for($i=0;$i<$dl_url_length;$i++){
-					return ($i+1).'、<a href="'.$dl_url[0][$i].'">第'.($i+1).'片段</a><br>';
-				}
-				preg_match('/http:\/\/(.*)\s{0,1}/',$content,$dl_url);
-				print_r($dl_url);
-				*/
-				//}
-			//}
-
 /*判断是否为A站地址*/
 function is_ac($str){
 	return preg_match("/^http:\/\/www\.acfun\.tv\/v\/ac([0-9]*)/", $str);
@@ -439,7 +324,6 @@ if($_POST['errorurl']){
 			</object>
     </div>
     ';
-
 }
 if(@$_POST['url']){
 	  $url=$_POST['url']; //得到ac地址
