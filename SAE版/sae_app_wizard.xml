@@ -1,0 +1,7 @@
+<appwizard><introduction><name></name><author>acfind</author><icon></icon><homepage></homepage><description><![CDATA[]]></description></introduction><platform><services><service></service><service name="download"  params="数据存储">Storage</service></services><appconfig><tpl><![CDATA[
+name: <<appname>>
+version: <<version>>
+version: 2
+...
+
+]]></tpl></appconfig></platform><code><initScript>http://acfind.sinaapp.com</initScript></code></appwizard>

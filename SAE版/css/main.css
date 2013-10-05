@@ -1,0 +1,87 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: hidden;
+}
+body { background: url(../image/dot.png) repeat }
+.form {
+    float: left;
+    position: relative;
+    right: 50%;
+    bottom: 50%;
+    margin-top: 60px;
+}
+.confirm {
+    cursor: pointer;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    font-size: 28px;
+    font-family: "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+    padding: 20px 25px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-decoration: none;
+    background: #0070FF;
+    border: 1px solid #0018CC;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px #6489FF;
+    -webkit-box-shadow: 0 0 10px #6489FF;
+    -moz-box-shadow: 0 0 10px #6489FF;
+    -ms-box-shadow: 0 0 10px #6489FF;
+    -o-box-shadow: 0 0 10px #6489FF;
+    text-shadow: rgba(0, 0, 0, .7) 0 1px 0;
+    transition: .7s all;
+    -webkit-transition: .7s all;
+    -moz-transition: .7s all;
+    -ms-transition: .7s all;
+    -o-transition: .7s all;
+}
+.confirm:hover {
+    background: #AD00FF;
+    border: 1px solid #AD00FF;
+    box-shadow: 0 0 10px #AD00FF;
+    -webkit-box-shadow: 0 0 10px #AD00FF;
+    -moz-box-shadow: 0 0 10px #AD00FF;
+    -ms-box-shadow: 0 0 10px #AD00FF;
+    -o-box-shadow: 0 0 10px #AD00FF;
+    color: #FFF;
+    transition: .7s all;
+    -webkit-transition: .7s all;
+    -moz-transition: .7s all;
+    -ms-transition: .7s all;
+    -o-transition: .7s all;
+}
+.txts {
+    height: 60px;
+    width: 766px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px solid #D6D6D6;
+    font-size: 30px;
+    font-weight: normal;
+    transition: .3s all;
+    -webkit-transition: .3s all;
+    -moz-transition: .3s all;
+    -ms-transition: .3s all;
+    -o-transition: .3s all;
+    text-align: center;
+}
+.txts:hover {
+    border: 2px solid #5498EE;
+    transition: .3s all;
+    -webkit-transition: .3s all;
+    -moz-transition: .3s all;
+    -ms-transition: .3s all;
+    -o-transition: .3s all;
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    padding-top: 70px;
+    width: 766px;
+    height: auto;
+}
